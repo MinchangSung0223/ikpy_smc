@@ -22,7 +22,7 @@ def inverse_kinematic_optimization(chain, target_frame, starting_nodes_angles, r
         Maximum number of iterations for the optimisation algorithm.
     """
     # Only get the position
-    target = target_frame[:3, 3]
+    target = target_frame
 
     if starting_nodes_angles is None:
         raise ValueError("starting_nodes_angles must be specified")
@@ -31,7 +31,7 @@ def inverse_kinematic_optimization(chain, target_frame, starting_nodes_angles, r
     def optimize_target(x):
         # y = np.append(starting_nodes_angles[:chain.first_active_joint], x)
         y = chain.active_to_full(x, starting_nodes_angles)
-        squared_distance = np.linalg.norm(chain.forward_kinematics(y)[:3, -1] - target)
+        squared_distance = np.linalg.norm(chain.forward_kinematics(y)- target)
         return squared_distance
 
     # If a regularization is selected

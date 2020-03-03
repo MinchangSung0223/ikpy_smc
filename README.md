@@ -81,3 +81,4 @@ Contributions are welcome: if you have an awesome patented (but also open-source
 
 # Links
 * If performance is your main concern, `aversive++` has an inverse kinematics [module](https://github.com/AversivePlusPlus/ik) written in C++, which works the same way IKPy does.
+# ikpy_smc
